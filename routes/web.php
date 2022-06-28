@@ -16,6 +16,8 @@ use App\Http\Controllers\CotacaofreteController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::middleware('api')->group(function () {
+    Route::get('/index', function () {
+    return view('index');
+    });
 });

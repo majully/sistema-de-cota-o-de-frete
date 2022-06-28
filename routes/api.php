@@ -16,11 +16,13 @@ use App\Http\Controllers\CotacaofreteController;
 |
 */
 
-// Cadastrar cotação de frete
-Route::post('cotacao', [CotacaofreteController::class, 'store']);
+Route::middleware('api')->group(function () {
+  // Cadastrar cotação de frete
+  Route::post('cotacao', [CotacaofreteController::class, 'store']);
 
-// Simular cálculo de imposto
-Route::put('cotacao', [CotacaofreteController::class, 'calculation']);
+  // Simular cálculo de imposto
+  Route::put('cotacao', [CotacaofreteController::class, 'calculation']);
 
-// Listar imposto
-Route::get('cotacao', [CotacaofreteController::class, 'show']);
+  // Listar imposto
+  Route::get('cotacao', [CotacaofreteController::class, 'show']);
+});
